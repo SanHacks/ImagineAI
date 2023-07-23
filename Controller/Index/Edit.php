@@ -14,11 +14,12 @@ class Edit extends Action
      * @var GenerateImage
      */
     protected GenerateImage $generateImage;
+
     /**
      * @param Context $context
      * @param GenerateImage $generateImage
      */
-    public function __construct(Context $context,GenerateImage $generateImage)
+    public function __construct(Context $context, GenerateImage $generateImage)
     {
         $this->generateImage = $generateImage;
         parent::__construct($context);
@@ -28,7 +29,7 @@ class Edit extends Action
     {
         $postData = $this->getRequest()->getPostValue();
 
-        if($postData){
+        if ($postData) {
             print_r($postData['prompt']);
             $prompt = 'Sky People';
             print_r($this->generateImage->getSingleImageUrl($prompt));

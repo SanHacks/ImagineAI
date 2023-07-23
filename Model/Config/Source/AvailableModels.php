@@ -11,11 +11,7 @@ class AvailableModels implements ArrayInterface
      */
     public function toOptionArray(): array
     {
-        $models = array(
-            'gpt3' => 'Dall-E 2(default)',
-            'gpt35' => 'DaVinci 1.3',
-            'gpt4' => 'Dall-E 1',
-        );
+        $models = array('gpt3' => 'Dall-E 2(default)', 'gpt35' => 'DaVinci 1.3', 'gpt4' => 'Dall-E 1',);
 
         $options = [];
         foreach ($models as $value => $label) {

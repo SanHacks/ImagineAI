@@ -29,7 +29,7 @@ class ImagineDataProvider extends DataProvider
     /**
      * @var array
      */
-    private $loadedData = [];
+    private array $loadedData = [];
 
     /**
      * @param string $name
@@ -44,31 +44,9 @@ class ImagineDataProvider extends DataProvider
      * @param array $meta
      * @param array $data
      */
-    public function __construct(
-        $name,
-        $primaryFieldName,
-        $requestFieldName,
-        ReportingInterface $reporting,
-        SearchCriteriaBuilder $searchCriteriaBuilder,
-        RequestInterface $request,
-        FilterBuilder $filterBuilder,
-        GetImagineListInterface $getListQuery,
-        SearchResultFactory $searchResultFactory,
-        array $meta = [],
-        array $data = []
-    )
+    public function __construct($name, $primaryFieldName, $requestFieldName, ReportingInterface $reporting, SearchCriteriaBuilder $searchCriteriaBuilder, RequestInterface $request, FilterBuilder $filterBuilder, GetImagineListInterface $getListQuery, SearchResultFactory $searchResultFactory, array $meta = [], array $data = [])
     {
-        parent::__construct(
-            $name,
-            $primaryFieldName,
-            $requestFieldName,
-            $reporting,
-            $searchCriteriaBuilder,
-            $request,
-            $filterBuilder,
-            $meta,
-            $data
-        );
+        parent::__construct($name, $primaryFieldName, $requestFieldName, $reporting, $searchCriteriaBuilder, $request, $filterBuilder, $meta, $data);
         $this->getListQuery = $getListQuery;
         $this->searchResultFactory = $searchResultFactory;
     }
@@ -83,12 +61,7 @@ class ImagineDataProvider extends DataProvider
         $searchCriteria = $this->getSearchCriteria();
         $result = $this->getListQuery->execute($searchCriteria);
 
-        return $this->searchResultFactory->create(
-            $result->getItems(),
-            $result->getTotalCount(),
-            $searchCriteria,
-            ImagineInterface::IMAGINE_ID
-        );
+        return $this->searchResultFactory->create($result->getItems(), $result->getTotalCount(), $searchCriteria, ImagineInterface::IMAGINE_ID);
     }
 
     /**

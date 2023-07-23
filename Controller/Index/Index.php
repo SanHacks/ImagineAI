@@ -3,9 +3,6 @@
 namespace Gundo\Imagine\Controller\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\App\ResponseInterface;
-use Magento\Framework\Controller\ResultInterface;
-use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\View\Result\PageFactory;
 
 class Index implements HttpGetActionInterface

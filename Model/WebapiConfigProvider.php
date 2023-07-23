@@ -49,9 +49,9 @@ class WebapiConfigProvider
      */
     public function getConfigFor(EndpointInterface $endpoint): ?ValidationConfigInterface
     {
-            if ($this->isEnabled->isCaptchaEnabledFor(self::CAPTCHA_ID)) {
-                return $this->configResolver->get(self::CAPTCHA_ID);
-            }
+        if ($this->isEnabled->isCaptchaEnabledFor(self::CAPTCHA_ID)) {
+            return $this->configResolver->get(self::CAPTCHA_ID);
+        }
 
         return null;
     }

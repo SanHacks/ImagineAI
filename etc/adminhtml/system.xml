@@ -33,7 +33,8 @@
                         "Shirt")
                     </comment>
                 </field>
-                <field id="selected_model" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="selected_model" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
                     <label>Selected Model</label>
                     <comment>Select the model to use with DALL·E.</comment>
                     <source_model>Gundo\Imagine\Model\Config\Source\AvailableModels</source_model>

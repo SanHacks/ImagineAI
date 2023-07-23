@@ -2,8 +2,9 @@
 
 namespace Gundo\Imagine\Block;
 
-use Magento\Framework\View\Element\Template;
+use Exception;
 use Gundo\Imagine\Helper\GenerateImage;
+use Magento\Framework\View\Element\Template;
 
 class Image extends Template
 {
@@ -19,11 +20,24 @@ class Image extends Template
      */
     public function __construct(
         Template\Context $context,
-        GenerateImage $generateImage,
-        array $data = []
-    ) {
+        GenerateImage    $generateImage,
+        array            $data = []
+    )
+    {
         $this->generateImage = $generateImage;
         parent::__construct($context, $data);
+    }
+
+    /**
+     * Get the image URL generated based on the prompt.
+     *
+     * @return string
+     * @throws Exception
+     */
+    public function getImageUrl(): string
+    {
+        $prompt = $this->getPrompt();
+        return $this->generateImage->getSingleImageUrl($prompt);
     }
 
     /**
@@ -34,17 +48,5 @@ class Image extends Template
     public function getPrompt(): ?string
     {
         return $this->getRequest()->getPostValue('prompt');
-    }
-
-    /**
-     * Get the image URL generated based on the prompt.
-     *
-     * @return string
-     * @throws \Exception
-     */
-    public function getImageUrl(): string
-    {
-        $prompt = $this->getPrompt();
-        return $this->generateImage->getSingleImageUrl($prompt);
     }
 }

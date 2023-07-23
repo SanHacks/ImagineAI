@@ -1,17 +1,17 @@
 {
-  "imagine": {
-    "column": {
-      "imagine_id": true,
-      "product_id": true,
-      "category": true,
-      "url": true,
-      "create_at": true
-    },
-    "index": {
-      "IMAGINE_IMAGINE_ID": true
-    },
-    "constraint": {
-      "PRIMARY": true
+    "imagine": {
+        "column": {
+            "imagine_id": true,
+            "product_id": true,
+            "category": true,
+            "url": true,
+            "create_at": true
+        },
+        "index": {
+            "IMAGINE_IMAGINE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
     }
-  }
 }

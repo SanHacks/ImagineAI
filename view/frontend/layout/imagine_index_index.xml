@@ -5,31 +5,31 @@
         <css src="Gundo_Imagine::css/imagine.css"/>
     </head>
     <body>
-    <referenceContainer name="content">
-    <block class="Gundo\Imagine\Block\Index"
-           name="imagine"
-           template="Gundo_Imagine::form.phtml">
-        <container name="form.additional.info.imagine">
-            <block class="Magento\ReCaptchaUi\Block\ReCaptcha"
-                   name="recaptcha"
-                   after="-"
-                   template="Magento_ReCaptchaFrontendUi::recaptcha.phtml"
-                   ifconfig="recaptcha_frontend/type_for/imagine">
-                <arguments>
-                    <argument name="recaptcha_for" xsi:type="string">imagine</argument>
-                    <argument name="jsLayout" xsi:type="array">
-                        <item name="components" xsi:type="array">
-                            <item name="recaptcha" xsi:type="array">
-                                <item name="component" xsi:type="string">
-                                    Magento_ReCaptchaFrontendUi/js/reCaptcha
+        <referenceContainer name="content">
+            <block class="Gundo\Imagine\Block\Index"
+                   name="imagine"
+                   template="Gundo_Imagine::form.phtml">
+                <container name="form.additional.info.imagine">
+                    <block class="Magento\ReCaptchaUi\Block\ReCaptcha"
+                           name="recaptcha"
+                           after="-"
+                           template="Magento_ReCaptchaFrontendUi::recaptcha.phtml"
+                           ifconfig="recaptcha_frontend/type_for/imagine">
+                        <arguments>
+                            <argument name="recaptcha_for" xsi:type="string">imagine</argument>
+                            <argument name="jsLayout" xsi:type="array">
+                                <item name="components" xsi:type="array">
+                                    <item name="recaptcha" xsi:type="array">
+                                        <item name="component" xsi:type="string">
+                                            Magento_ReCaptchaFrontendUi/js/reCaptcha
+                                        </item>
+                                    </item>
                                 </item>
-                            </item>
-                        </item>
-                    </argument>
-                </arguments>
+                            </argument>
+                        </arguments>
+                    </block>
+                </container>
             </block>
-        </container>
-    </block>
-    </referenceContainer>
+        </referenceContainer>
     </body>
 </page>

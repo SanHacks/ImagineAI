@@ -4,8 +4,8 @@ namespace Gundo\Imagine\Ui\Component\Listing\Column;
 
 use Gundo\Imagine\Api\Data\ImagineInterface;
 use Magento\Framework\UrlInterface;
-use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
 /**
@@ -36,20 +36,9 @@ class ImagineBlockActions extends Column
      * @param array $components
      * @param array $data
      */
-    public function __construct(
-        ContextInterface   $context,
-        UiComponentFactory $uiComponentFactory,
-        UrlInterface       $urlBuilder,
-        array              $components = [],
-        array              $data = []
-    )
+    public function __construct(ContextInterface $context, UiComponentFactory $uiComponentFactory, UrlInterface $urlBuilder, array $components = [], array $data = [])
     {
-        parent::__construct(
-            $context,
-            $uiComponentFactory,
-            $components,
-            $data
-        );
+        parent::__construct($context, $uiComponentFactory, $components, $data);
         $this->urlBuilder = $urlBuilder;
     }
 
@@ -71,15 +60,7 @@ class ImagineBlockActions extends Column
                     $editUrl = $this->urlBuilder->getUrl(static::EDIT_URL_PATH, $urlData);
                     $deleteUrl = $this->urlBuilder->getUrl(static::DELETE_URL_PATH, $urlData);
 
-                    $item[$this->getData('name')] = [
-                        'edit' => $this->getActionData($editUrl, (string)__('Edit')),
-                        'delete' => $this->getActionData(
-                            $deleteUrl,
-                            (string)__('Delete'),
-                            (string)__('Delete %1', $entityName),
-                            (string)__('Are you sure you want to delete a %1 record?', $entityName)
-                        )
-                    ];
+                    $item[$this->getData('name')] = ['edit' => $this->getActionData($editUrl, (string)__('Edit')), 'delete' => $this->getActionData($deleteUrl, (string)__('Delete'), (string)__('Delete %1', $entityName), (string)__('Are you sure you want to delete a %1 record?', $entityName))];
                 }
             }
         }
@@ -97,25 +78,12 @@ class ImagineBlockActions extends Column
      *
      * @return array
      */
-    private function getActionData(
-        string  $url,
-        string  $label,
-        ?string $dialogTitle = null,
-        ?string $dialogMessage = null
-    ): array
+    private function getActionData(string $url, string $label, ?string $dialogTitle = null, ?string $dialogMessage = null): array
     {
-        $data = [
-            'href' => $url,
-            'label' => $label,
-            'post' => true,
-            '__disableTmpl' => true
-        ];
+        $data = ['href' => $url, 'label' => $label, 'post' => true, '__disableTmpl' => true];
 
         if ($dialogTitle && $dialogMessage) {
-            $data['confirm'] = [
-                'title' => $dialogTitle,
-                'message' => $dialogMessage
-            ];
+            $data['confirm'] = ['title' => $dialogTitle, 'message' => $dialogMessage];
         }
 
         return $data;

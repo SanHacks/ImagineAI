@@ -12,7 +12,7 @@ interface ImagineSearchResultsInterface extends SearchResultsInterface
     /**
      * Set items.
      *
-     * @param \Gundo\Imagine\Api\Data\ImagineInterface[] $items
+     * @param ImagineInterface[] $items
      *
      * @return ImagineSearchResultsInterface
      */
@@ -21,7 +21,7 @@ interface ImagineSearchResultsInterface extends SearchResultsInterface
     /**
      * Get items.
      *
-     * @return \Gundo\Imagine\Api\Data\ImagineInterface[]
+     * @return ImagineInterface[]
      */
     public function getItems(): array;
 }

@@ -10,7 +10,7 @@ class ImagineResource extends AbstractDb
     /**
      * @var string
      */
-    protected $_eventPrefix = 'imagine_resource_model';
+    protected string $_eventPrefix = 'imagine_resource_model';
 
     /**
      * Initialize resource model.

@@ -14,8 +14,7 @@ class ImagineData extends DataObject implements ImagineInterface
      */
     public function getImagineId(): ?int
     {
-        return $this->getData(self::IMAGINE_ID) === null ? null
-            : (int)$this->getData(self::IMAGINE_ID);
+        return $this->getData(self::IMAGINE_ID) === null ? null : (int)$this->getData(self::IMAGINE_ID);
     }
 
     /**
@@ -37,8 +36,7 @@ class ImagineData extends DataObject implements ImagineInterface
      */
     public function getProductId(): ?int
     {
-        return $this->getData(self::PRODUCT_ID) === null ? null
-            : (int)$this->getData(self::PRODUCT_ID);
+        return $this->getData(self::PRODUCT_ID) === null ? null : (int)$this->getData(self::PRODUCT_ID);
     }
 
     /**
@@ -60,8 +58,7 @@ class ImagineData extends DataObject implements ImagineInterface
      */
     public function getCategory(): ?int
     {
-        return $this->getData(self::CATEGORY) === null ? null
-            : (int)$this->getData(self::CATEGORY);
+        return $this->getData(self::CATEGORY) === null ? null : (int)$this->getData(self::CATEGORY);
     }
 
     /**

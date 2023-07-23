@@ -11,10 +11,7 @@ class Data extends AbstractHelper
 {
     protected $scopeConfig;
 
-    public function __construct(
-        Context              $context,
-        ScopeConfigInterface $scopeConfig
-    )
+    public function __construct(Context $context, ScopeConfigInterface $scopeConfig)
     {
         $this->scopeConfig = $scopeConfig;
         parent::__construct($context);
@@ -26,11 +23,7 @@ class Data extends AbstractHelper
      */
     public function isImagineEnabled($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag(
-            'imagine/general/enabled',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        return $this->scopeConfig->isSetFlag('imagine/general/enabled', ScopeInterface::SCOPE_STORE, $storeId);
     }
 
     /**
@@ -40,11 +33,7 @@ class Data extends AbstractHelper
      */
     public function getApiKey($storeId = null): mixed
     {
-        return $this->scopeConfig->getValue(
-            'imagine/general/api_key',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        return $this->scopeConfig->getValue('imagine/general/api_key', ScopeInterface::SCOPE_STORE, $storeId);
     }
 
     /**
@@ -54,11 +43,7 @@ class Data extends AbstractHelper
      */
     public function getModelFineTune($storeId = null): mixed
     {
-        return $this->scopeConfig->getValue(
-            'imagine/general/fine_tune',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        return $this->scopeConfig->getValue('imagine/general/fine_tune', ScopeInterface::SCOPE_STORE, $storeId);
     }
 
     /**
@@ -67,11 +52,7 @@ class Data extends AbstractHelper
      */
     public function getApiSecret($storeId = null): mixed
     {
-        return $this->scopeConfig->getValue(
-            'imagine/general/api_secret',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        return $this->scopeConfig->getValue('imagine/general/api_secret', ScopeInterface::SCOPE_STORE, $storeId);
     }
 
     /**
@@ -80,11 +61,7 @@ class Data extends AbstractHelper
      */
     public function isGuestAllowed($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag(
-            'imagine/general/allow_guests',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        return $this->scopeConfig->isSetFlag('imagine/general/allow_guests', ScopeInterface::SCOPE_STORE, $storeId);
     }
 
     /**
@@ -93,11 +70,7 @@ class Data extends AbstractHelper
      */
     public function getCustomerGroups($storeId = null): array
     {
-        $customerGroups = $this->scopeConfig->getValue(
-            'imagine/general/customer_groups',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        $customerGroups = $this->scopeConfig->getValue('imagine/general/customer_groups', ScopeInterface::SCOPE_STORE, $storeId);
 
         return explode(',', $customerGroups);
     }
@@ -108,11 +81,7 @@ class Data extends AbstractHelper
      */
     public function isSaveToCustomerAccount($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag(
-            'imagine/general/save_to_customer_account',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        return $this->scopeConfig->isSetFlag('imagine/general/save_to_customer_account', ScopeInterface::SCOPE_STORE, $storeId);
     }
 
     /**
@@ -121,10 +90,6 @@ class Data extends AbstractHelper
      */
     public function isSaveToDatabase($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag(
-            'imagine/general/save_to_database',
-            ScopeInterface::SCOPE_STORE,
-            $storeId
-        );
+        return $this->scopeConfig->isSetFlag('imagine/general/save_to_database', ScopeInterface::SCOPE_STORE, $storeId);
     }
 }

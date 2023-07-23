@@ -14,7 +14,7 @@ interface SaveImagineInterface
 {
     /**
      * Save Imagine.
-     * @param \Gundo\Imagine\Api\Data\ImagineInterface $imagine
+     * @param ImagineInterface $imagine
      * @return int
      * @throws CouldNotSaveException
      */

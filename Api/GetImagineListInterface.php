@@ -14,8 +14,8 @@ interface GetImagineListInterface
 {
     /**
      * Get Imagine list by search criteria.
-     * @param \Magento\Framework\Api\SearchCriteriaInterface|null $searchCriteria
-     * @return \Gundo\Imagine\Api\Data\ImagineSearchResultsInterface
+     * @param SearchCriteriaInterface|null $searchCriteria
+     * @return ImagineSearchResultsInterface
      */
     public function execute(?SearchCriteriaInterface $searchCriteria = null): ImagineSearchResultsInterface;
 }

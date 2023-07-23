@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <title>Auto Generated</title>
         <css src="Gundo_Imagine::css/generatedImage.css"/>
@@ -30,7 +31,7 @@
                     </block>
                 </container>
             </block>
-            <block class="Gundo\Imagine\Block\Image" name="gundo_imagine_image" template="Gundo_Imagine::image.phtml" />
+            <block class="Gundo\Imagine\Block\Image" name="gundo_imagine_image" template="Gundo_Imagine::image.phtml"/>
         </referenceContainer>
     </body>
 </page>

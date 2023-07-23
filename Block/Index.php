@@ -2,9 +2,12 @@
 
 namespace Gundo\Imagine\Block;
 
-use Gundo\LoyaltyProgramme\Block\ProgrammeForm;
 use Magento\Framework\View\Element\Template;
 
+/**
+ * @Index Block
+ * @package Gundo\Imagine
+ */
 class Index extends Template
 {
     /**
@@ -24,7 +27,6 @@ class Index extends Template
     {
         return $this->getUrl('Imagine/index/save', ['_secure' => true]);
     }
-
 
     /**
      * @param $field

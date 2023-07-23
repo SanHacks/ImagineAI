@@ -48,10 +48,10 @@ class Save extends Action implements HttpPostActionInterface
      * @param ImagineInterfaceFactory $entityDataFactory
      */
     public function __construct(
-        Context                 $context,
-        DataPersistorInterface  $dataPersistor,
-        SaveImagineInterface    $saveCommand,
-        ImagineInterface $entityDataFactory
+        Context                $context,
+        DataPersistorInterface $dataPersistor,
+        SaveImagineInterface   $saveCommand,
+        ImagineInterface       $entityDataFactory
     )
     {
         parent::__construct($context);

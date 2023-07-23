@@ -3,14 +3,12 @@
 namespace Gundo\Imagine\Query\Imagine;
 
 use Gundo\Imagine\Api\Data\ImagineSearchResultsInterface;
-use Gundo\Imagine\Api\Data\ImagineSearchResultsInterfaceFactory;
 use Gundo\Imagine\Api\GetImagineListInterface;
 use Gundo\Imagine\Mapper\ImagineDataMapper;
 use Gundo\Imagine\Model\ResourceModel\ImagineModel\ImagineCollection;
-use Gundo\Imagine\Model\ResourceModel\ImagineModel\ImagineCollectionFactory;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 
 /**
  * Get Imagine list by search criteria query.
@@ -23,9 +21,9 @@ class GetListQuery implements GetImagineListInterface
     private CollectionProcessorInterface $collectionProcessor;
 
     /**
-     * @var ImagineCollectionFactory
+     * @var ImagineCollection
      */
-    private ImagineCollectionFactory $entityCollectionFactory;
+    private ImagineCollection $entityCollectionFactory;
 
     /**
      * @var ImagineDataMapper
@@ -38,23 +36,23 @@ class GetListQuery implements GetImagineListInterface
     private SearchCriteriaBuilder $searchCriteriaBuilder;
 
     /**
-     * @var ImagineSearchResultsInterfaceFactory
+     * @var ImagineSearchResultsInterface
      */
-    private ImagineSearchResultsInterfaceFactory $searchResultFactory;
+    private ImagineSearchResultsInterface $searchResultFactory;
 
     /**
      * @param CollectionProcessorInterface $collectionProcessor
-     * @param ImagineCollectionFactory $entityCollectionFactory
+     * @param ImagineCollection $entityCollectionFactory
      * @param ImagineDataMapper $entityDataMapper
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
-     * @param ImagineSearchResultsInterfaceFactory $searchResultFactory
+     * @param ImagineSearchResultsInterface $searchResultFactory
      */
     public function __construct(
-        CollectionProcessorInterface         $collectionProcessor,
-        ImagineCollectionFactory             $entityCollectionFactory,
-        ImagineDataMapper                    $entityDataMapper,
-        SearchCriteriaBuilder                $searchCriteriaBuilder,
-        ImagineSearchResultsInterfaceFactory $searchResultFactory
+        CollectionProcessorInterface  $collectionProcessor,
+        ImagineCollection             $entityCollectionFactory,
+        ImagineDataMapper             $entityDataMapper,
+        SearchCriteriaBuilder         $searchCriteriaBuilder,
+        ImagineSearchResultsInterface $searchResultFactory
     )
     {
         $this->collectionProcessor = $collectionProcessor;

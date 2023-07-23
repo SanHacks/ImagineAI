@@ -37,9 +37,9 @@ class DeleteByIdCommand implements DeleteImagineByIdInterface
      * @param ImagineResource $resource
      */
     public function __construct(
-        LoggerInterface     $logger,
-        ImagineModel $modelFactory,
-        ImagineResource     $resource
+        LoggerInterface $logger,
+        ImagineModel    $modelFactory,
+        ImagineResource $resource
     )
     {
         $this->logger = $logger;
