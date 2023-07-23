@@ -8,13 +8,6 @@
             </argument>
         </arguments>
     </type>
-    <preference for="Gundo\Imagine\Api\Data\ImagineInterface" type="Gundo\Imagine\Model\Data\ImagineData"/>
-    <preference for="Gundo\Imagine\Api\GetImagineListInterface" type="Gundo\Imagine\Query\Imagine\GetListQuery"/>
-    <preference for="Gundo\Imagine\Api\SaveImagineInterface" type="Gundo\Imagine\Command\Imagine\SaveCommand"/>
-    <preference for="Gundo\Imagine\Api\DeleteImagineByIdInterface"
-                type="Gundo\Imagine\Command\Imagine\DeleteByIdCommand"/>
-    <preference for="Gundo\Imagine\Api\Data\ImagineSearchResultsInterface"
-                type="Gundo\Imagine\Model\ImagineSearchResults"/>
     <type name="Magento\ReCaptchaWebapiApi\Model\CompositeWebapiValidationConfigProvider">
         <arguments>
             <argument name="providers" xsi:type="array">
