@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">imagine_form.imagine_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Imagine Form</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>imagine_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>imagine_form.imagine_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save" class="Gundo\Imagine\Block\Form\Imagine\Save"/>
+            <button name="back" class="Gundo\Imagine\Block\Form\Imagine\Back"/>
+            <button name="delete" class="Gundo\Imagine\Block\Form\Imagine\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="imagine_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="imagine/imagine/save"/>
+        </settings>
+        <dataProvider class="Gundo\Imagine\Ui\DataProvider\ImagineDataProvider" name="imagine_form_data_source">
+            <settings>
+                <requestFieldName>imagine_id</requestFieldName>
+                <primaryFieldName>imagine_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="imagine_id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">imagine_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Entity ID</label>
+                <dataScope>imagine_id</dataScope>
+            </settings>
+        </field>
+        <field name="product_id" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">product_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Product Id</label>
+                <dataScope>product_id</dataScope>
+            </settings>
+        </field>
+        <field name="category" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">category</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Category</label>
+                <dataScope>category</dataScope>
+            </settings>
+        </field>
+        <field name="url" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">url</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Url</label>
+                <dataScope>url</dataScope>
+            </settings>
+        </field>
+        <field name="create_at" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">create_at</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Create At</label>
+                <dataScope>create_at</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

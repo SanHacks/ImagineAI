@@ -1,0 +1,9 @@
+<?php
+/** @var Gundo\Imagine\Block\Image $block */
+$prompt = $block->getPrompt();
+$imageUrl = $block->getImageUrl();
+?>
+<div style="text-align: center;">
+    <p>Prompt: <?= $block->escapeHtml($prompt) ?></p>
+    <img src="<?= $block->escapeUrl($imageUrl) ?>" alt="Generated Image" style="max-width: 100%; height: auto;"/>
+</div>

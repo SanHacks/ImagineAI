@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="imagine" translate="label" sortOrder="10">
+            <label>Imagine Designs</label>
+        </tab>
+        <section id="imagine" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>imagine</label>
+            <tab>imagine</tab>
+            <resource>Gundo_Imagine::config_imagine</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>API Key</label>
+                </field>
+                <field id="api_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>API Secret</label>
+                </field>
+                <field id="fine_tune" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Fine Tune Model</label>
+                    <comment>Fine tune the model by adding a phrase to the end of the search term(e.g "Dress" or
+                        "Shirt")
+                    </comment>
+                </field>
+                <field id="selected_model" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Selected Model</label>
+                    <comment>Select the model to use with DALL·E.</comment>
+                    <source_model>Gundo\Imagine\Model\Config\Source\AvailableModels</source_model>
+                </field>
+                <!--Allow guests YES/NO-->
+                <field id="allow_guests" translate="label" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Allow Guests</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!-- Customer Groups -->
+                <field id="customer_groups" translate="label" type="multiselect" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Customer Groups</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                </field>
+                <!-- Save to Customer Account -->
+                <field id="save_to_customer_account" translate="label" type="select" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Save to Customer Account</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!-- Save to Database -->
+                <field id="save_to_database" translate="label" type="select" sortOrder="80" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Save to Database</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="recaptcha_frontend">
+            <group id="type_for">
+                <field id="imagine" translate="label" type="select" sortOrder="180" showInDefault="1"
+                       showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enable for Imagine(AI)</label>
+                    <comment>If enabled user will be prompted by Google re-Captcha</comment>
+                    <source_model>Magento\ReCaptchaAdminUi\Model\OptionSource\Type</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

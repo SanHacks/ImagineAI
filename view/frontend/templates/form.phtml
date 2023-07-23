@@ -1,0 +1,31 @@
+<?php
+
+ /** @var Index $block */
+
+use Gundo\Imagine\Block\Index;
+
+?>
+<div class="imagine-form">
+    <form action="<?php echo $block->getFormAction(); ?>" method="POST">
+        <input name="form_key" type="hidden" value="<?php echo $block->getFormKey(); ?>"/>
+
+        <div class="field required">
+            <label for="name" class="label"><span><?php echo __('Generate T-Shirt From Prompt'); ?></span></label>
+            <div class="control">
+                <input name="prompt" id="prompt"
+                       title="<?php echo __('Generate Image with Any text e.g CyberPunk Sahara'); ?>"
+                       value="<?php echo $block->escapeHtml($block->getFormData('prompt')); ?>" class="input-text"
+                       type="text" data-validate="{required:true}">
+            </div>
+        </div>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action primary" title="<?php echo __('Generate'); ?>">
+                    <span><?php echo __('Generate'); ?></span>
+                </button>
+            </div>
+        </div>
+        <?= $block->getChildHtml('form.additional.info.imagine') ?>
+    </form>
+</div>

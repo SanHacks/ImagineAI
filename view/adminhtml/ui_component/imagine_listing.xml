@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">imagine_listing.imagine_listing_data_source</item>
+            <item name="deps" xsi:type="string">imagine_listing.imagine_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New</label>
+            </button>
+        </buttons>
+        <spinner>imagine_listing_columns</spinner>
+        <deps>
+            <dep>imagine_listing.imagine_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="imagine_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">imagine_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Gundo_Imagine::management</aclResource>
+        <dataProvider class="Gundo\Imagine\Ui\DataProvider\ImagineDataProvider" name="imagine_listing_data_source">
+            <settings>
+                <requestFieldName>imagine_id</requestFieldName>
+                <primaryFieldName>imagine_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="imagine_listing_columns">
+        <column name="imagine_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="product_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Product Id</label>
+            </settings>
+        </column>
+        <column name="category">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Category</label>
+            </settings>
+        </column>
+        <column name="url">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Url</label>
+            </settings>
+        </column>
+        <column name="create_at">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Create At</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Gundo\Imagine\Ui\Component\Listing\Column\ImagineBlockActions">
+            <settings>
+                <indexField>imagine_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="imagine" resource="default" engine="innodb" comment="Imagine">
+        <column xsi:type="int" name="imagine_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Imagine Id Column"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Product Id Column"/>
+        <column xsi:type="int" name="category" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Category Column"/>
+        <column xsi:type="varchar" name="url" nullable="false" length="255" comment="Url Column"/>
+        <column xsi:type="varchar" name="create_at" nullable="false" length="255" comment="Create At Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="imagine_id"/>
+        </constraint>
+        <index referenceId="IMAGINE_IMAGINE_ID" indexType="btree">
+            <column name="imagine_id"/>
+        </index>
+    </table>
+</schema>
