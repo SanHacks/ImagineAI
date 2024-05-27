@@ -25,6 +25,9 @@ class Edit extends Action
         parent::__construct($context);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function execute()
     {
         $postData = $this->getRequest()->getPostValue();

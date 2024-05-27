@@ -5,11 +5,11 @@ declare(strict_types=1);
 
 namespace Gundo\Imagine\Model;
 
-use Gundo\LoyaltyProgramme\Model\EndpointInterface;
 use Magento\Framework\Exception\InputException;
 use Magento\ReCaptchaUi\Model\IsCaptchaEnabledInterface;
 use Magento\ReCaptchaUi\Model\ValidationConfigResolverInterface;
 use Magento\ReCaptchaValidationApi\Api\Data\ValidationConfigInterface;
+use Magento\ReCaptchaWebapiApi\Api\Data\EndpointInterface;
 
 /**
  * @package Gundo/Imagine
