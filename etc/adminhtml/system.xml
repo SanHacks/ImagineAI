@@ -3,11 +3,11 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <tab id="imagine" translate="label" sortOrder="10">
-            <label>Imagine Designs</label>
+            <label>MiddleMan</label>
         </tab>
         <section id="imagine" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
                  showInStore="1">
-            <label>imagine</label>
+            <label>Imagine AI</label>
             <tab>imagine</tab>
             <resource>Gundo_Imagine::config_imagine</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
@@ -26,7 +26,7 @@
                        showInStore="1">
                     <label>API Secret</label>
                 </field>
-                <field id="fine_tune" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                <field id="fine_tune" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Fine Tune Model</label>
                     <comment>Fine tune the model by adding a phrase to the end of the search term(e.g "Dress" or
