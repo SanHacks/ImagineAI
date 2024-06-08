@@ -11,7 +11,7 @@ class ImageBlock extends Template
     /**
      * @var GenerateImageHelper
      */
-    protected GenerateImageHelper $generateImage;
+    public $generateImage;
 
     /**
      * @param Template\Context $context
@@ -22,8 +22,7 @@ class ImageBlock extends Template
         Template\Context    $context,
         GenerateImageHelper $generateImage,
         array               $data = []
-    )
-    {
+    ) {
         $this->generateImage = $generateImage;
         parent::__construct($context, $data);
     }

@@ -13,19 +13,10 @@ use Gundo\Imagine\Helper\Data as Config;
 
 class Index implements HttpGetActionInterface
 {
-    /**
-     * @var PageFactory
-     */
-    protected PageFactory $resultPageFactory;
+    public PageFactory $resultPageFactory;
 
-    /**
-     * @var Config
-     */
     private Config $config;
 
-    /**
-     * @var Session
-     */
     private Session $customerSession;
 
     /**
