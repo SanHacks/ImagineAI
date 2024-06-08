@@ -54,11 +54,13 @@ class GenerateImageHelper
         Data                       $configHelper,
         Data                       $configData,
         Logger                     $logger
-    )
-    {
+    ) {
         $this->client = $client;
         $this->productRepository = $productRepository;
-        $this->headers = ['Content-Type' => 'application/json', 'Authorization' => 'Bearer ' . $configHelper->getApiKey()];
+        $this->headers = [
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . $configHelper->getApiKey()
+        ];
         $this->configData = $configData;
         $this->logger = $logger;
     }
@@ -70,7 +72,7 @@ class GenerateImageHelper
     public function generateSingleImage($prompt)
     {
         if (!$prompt) {
-            throw new Exception('Prompt is required');
+            return null;
         }
 
         $body = json_encode(

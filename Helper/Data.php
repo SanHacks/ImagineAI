@@ -21,7 +21,7 @@ class Data extends AbstractHelper
     public function __construct(
         Context $context,
         ScopeConfigInterface $scopeConfig
-    ){
+    ) {
         $this->scopeConfig = $scopeConfig;
         parent::__construct($context);
     }

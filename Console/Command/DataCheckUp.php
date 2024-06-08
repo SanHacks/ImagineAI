@@ -12,7 +12,7 @@ class DataCheckUp extends Command
     /**
      * @var ResourceConnection
      */
-    private ResourceConnection $resourceConnection;
+    private $resourceConnection;
 
     /**
      * @param ResourceConnection $resourceConnection
