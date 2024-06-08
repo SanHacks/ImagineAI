@@ -23,6 +23,7 @@ class SampleData extends Command
 
     /**
      * @param ResourceConnection $resourceConnection
+     * @param Logger $logger
      */
     public function __construct(
         ResourceConnection $resourceConnection,
@@ -58,14 +59,18 @@ class SampleData extends Command
         $this->logger->info('Generating sample data...');
         $connection = $this->resourceConnection->getConnection();
         $tableName = $connection->getTableName('imagine');
-        $progress = new ProgressBar($output, 100);
+        $progress = new ProgressBar($output, 1000000);
         $progress->start();
-        for ($i = 0; $i < 100; $i++) {
-            $sql = "INSERT INTO $tableName (product_id, image_url) VALUES (:product_id, :image_url)";
-            $binds = ['product_id' => $i, 'url' => 'https://example.com/image' . $i . '.jpg'];
+        for ($i = 0; $i < 1000000; $i++) {
+            $sql = "INSERT INTO $tableName (product_id, url, created_at) VALUES (:product_id, :url, NOW())";
+            $binds = [
+                'product_id' => $i,
+                'url' => 'https://example.com/image-' . $i . '.jpg'
+            ];
+
             $connection->query($sql, $binds);
             $this->logger->info('Sample data generated for product ID: ' . $i);
-            $this->logger->info('Image URL: ' . $binds['image_url']);
+            $this->logger->info('Image URL: ' . $binds['url']);
             $this->logger->info('-----------------------------------');
             $progress->setProgress($i);
             $progress->advance();

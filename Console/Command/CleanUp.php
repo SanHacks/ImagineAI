@@ -46,14 +46,20 @@ class CleanUp extends Command
         $connection = $this->resourceConnection->getConnection();
         $tableName = $connection->getTableName('imagine');
 
-        $date = new \DateTime('now' - 3600);
-        $date->sub(new \DateInterval('P30D'));
+        $date = new \DateTime('now');
+//        $date->sub(new \DateInterval('P30D'));
+        //30 seconds for testing
+        $date->sub(new \DateInterval('PT30S'));
         $formattedDate = $date->format('Y-m-d H:i:s');
+        $output->writeln('Deleting records older than: ' . $formattedDate);
+        $output->writeln('Before deleting records...');
 
-        $sql = "DELETE FROM $tableName WHERE create_at < :date";
+        $sql = "DELETE FROM $tableName WHERE created_at < :date";
         $binds = ['date' => $formattedDate];
-        $connection->query($sql, $binds);
+       $output->writeln('SQL: ' . $sql);
 
+        $connection->query($sql, $binds);
+        $output->writeln('Current Records: ' . $connection->fetchOne("SELECT ROW_COUNT()"));
         $output->writeln('Old records have been deleted.');
         return 0;
     }

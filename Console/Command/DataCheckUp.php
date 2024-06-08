@@ -43,27 +43,46 @@ class DataCheckUp extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $connection = $this->resourceConnection->getConnection();
-        $tableName = $connection->getTableName('imagine');
-        $sql = "SELECT * FROM $tableName";
-        $result = $connection->fetchAll($sql);
-        if (empty($result)) {
+        $data = $this->fetchData();
+        if (empty($data)) {
             $output->writeln('No data found.');
             return 0;
         }
         $output->writeln('Data found.');
         $output->writeln('Data check up is in progress...');
-        //Table data view
-        foreach ($result as $row) {
-            $output->writeln('ID: ' . $row['id']);
-            $output->writeln('Product ID: ' . $row['product_id']);
-            $output->writeln('Image URL: ' . $row['image_url']);
-            $output->writeln('Created At: ' . $row['created_at']);
-            $output->writeln('Updated At: ' . $row['updated_at']);
-            $output->writeln('---------------------------------');
-        }
+        $output->writeln('---------------------------------' . PHP_EOL);
+        $this->displayData($output, $data) . PHP_EOL;
+        $output->writeln('---------------------------------');
         $output->writeln('Data check up has been done.');
 
         return 0;
+    }
+
+    /**
+     * @return array
+     */
+    private function fetchData(): array
+    {
+        $connection = $this->resourceConnection->getConnection();
+        $tableName = $connection->getTableName('imagine');
+        $sql = "SELECT * FROM $tableName";
+
+        return $connection->fetchAll($sql);
+    }
+
+    /**
+     * @param OutputInterface $output
+     * @param array $data
+     * @return void
+     */
+    private function displayData(OutputInterface $output, array $data): void
+    {
+        foreach ($data as $row) {
+            $output->writeln('ID: ' . $row['imagine_id']);
+            $output->writeln('Product ID: ' . $row['product_id']);
+            $output->writeln('Image URL: ' . $row['url']);
+            $output->writeln('Created At: ' . $row['created_at']);
+            $output->writeln('---------------------------------');
+        }
     }
 }
