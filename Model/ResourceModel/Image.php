@@ -6,9 +6,6 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class Image extends AbstractDb
 {
-    /**
-     * @var string
-     */
     protected string $_eventPrefix = 'imagine_resource_model';
 
     /**

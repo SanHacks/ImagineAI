@@ -10,9 +10,6 @@ use Magento\ReCaptchaWebapiApi\Api\Data\EndpointInterface;
 
 class WebapiConfigProvider
 {
-    /**
-     * Captcha id from config.
-     */
     private const CAPTCHA_ID = 'imagine';
 
     /**
@@ -32,8 +29,7 @@ class WebapiConfigProvider
     public function __construct(
         IsCaptchaEnabledInterface         $isEnabled,
         ValidationConfigResolverInterface $configResolver
-    )
-    {
+    ){
         $this->isEnabled = $isEnabled;
         $this->configResolver = $configResolver;
     }

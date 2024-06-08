@@ -9,9 +9,6 @@ use Magento\Ui\Component\Listing\Columns\Column;
 
 class Actions extends Column
 {
-    /**
-     * @var UrlInterface
-     */
     protected UrlInterface $_urlBuilder;
 
     /**
@@ -29,8 +26,7 @@ class Actions extends Column
                            $viewUrl = '',
         array              $components = [],
         array              $data = []
-    )
-    {
+    ){
         $this->_urlBuilder = $urlBuilder;
         $this->_viewUrl = $viewUrl;
         parent::__construct($context, $uiComponentFactory, $components, $data);
