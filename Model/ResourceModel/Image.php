@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace Gundo\Imagine\Model\ResourceModel;
 
@@ -6,7 +6,7 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class Image extends AbstractDb
 {
-    protected string $_eventPrefix = 'imagine_resource_model';
+    protected $_eventPrefix = 'imagine_resource_model';
 
     /**
      * @return void
