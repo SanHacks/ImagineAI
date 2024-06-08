@@ -14,12 +14,12 @@ class Edit extends Action
     /**
      * @var GenerateImageHelper
      */
-    protected GenerateImageHelper $generateImage;
+    protected $generateImage;
 
     /**
      * @var Logger
      */
-    private Logger $logger;
+    private $logger;
 
     /**
      * @param Context $context

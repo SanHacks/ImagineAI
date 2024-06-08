@@ -14,7 +14,7 @@ class SampleData extends Command
     /**
      * @var ResourceConnection
      */
-    private ResourceConnection $resourceConnection;
+    private $resourceConnection;
 
     /**
      * @var Logger
@@ -28,8 +28,7 @@ class SampleData extends Command
     public function __construct(
         ResourceConnection $resourceConnection,
         Logger $logger
-    )
-    {
+    ) {
         $this->resourceConnection = $resourceConnection;
         $this->logger = $logger;
         parent::__construct();
@@ -74,7 +73,7 @@ class SampleData extends Command
             $this->logger->info('-----------------------------------');
             $progress->setProgress($i);
             $progress->advance();
-            usleep(100000);
+//            usleep(100000);
         }
         $progress->finish();
         $output->writeln('Sample data has been generated.');

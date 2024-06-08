@@ -59,7 +59,7 @@ class CleanUp extends Command
        $output->writeln('SQL: ' . $sql);
 
         $connection->query($sql, $binds);
-        $output->writeln('Current Records: ' . $connection->fetchOne("SELECT ROW_COUNT()"));
+        $output->writeln('Affected: ' . $connection->fetchOne("SELECT ROW_COUNT()"));
         $output->writeln('Old records have been deleted.');
         return 0;
     }

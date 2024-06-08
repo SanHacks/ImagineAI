@@ -16,12 +16,12 @@ class AddImageaiProductNameProductAttribute implements DataPatchInterface
     /**
      * @var ModuleDataSetupInterface
      */
-    private ModuleDataSetupInterface $moduleDataSetup;
+    private $moduleDataSetup;
 
     /**
      * @var EavSetupFactory
      */
-    private EavSetupFactory $eavSetupFactory;
+    private $eavSetupFactory;
 
     /**
      * @param ModuleDataSetupInterface $moduleDataSetup
@@ -30,7 +30,7 @@ class AddImageaiProductNameProductAttribute implements DataPatchInterface
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
         EavSetupFactory          $eavSetupFactory
-    ){
+    ) {
         $this->moduleDataSetup = $moduleDataSetup;
         $this->eavSetupFactory = $eavSetupFactory;
     }

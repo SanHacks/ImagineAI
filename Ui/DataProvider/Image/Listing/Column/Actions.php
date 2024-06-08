@@ -14,7 +14,10 @@ class Actions extends Column
      */
     protected $_urlBuilder;
 
-    protected mixed $_viewUrl;
+    /**
+     * @var mixed|string
+     */
+    protected $_viewUrl;
 
     /**
      * @param ContextInterface $context
