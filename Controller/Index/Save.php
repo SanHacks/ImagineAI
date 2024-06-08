@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Gundo\Imagine\Controller\Index;
 
@@ -40,7 +40,7 @@ class Save extends Action
 
         if ($postData && isset($postData['prompt'])) {
             $prompt = $postData['prompt'];
-            $generatedImageUrl = $this->generateImage->getSingleImageUrl($prompt);
+            $generatedImageUrl = $this->generateImage->generateSingleImage($prompt);
 
             // Render the template with the generated image URL
             $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);

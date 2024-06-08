@@ -37,7 +37,7 @@ class Image extends Template
     public function getImageUrl(): string
     {
         $prompt = $this->getPrompt();
-        return $this->generateImage->getSingleImageUrl($prompt);
+        return $this->generateImage->generateSingleImage($prompt);
     }
 
     /**

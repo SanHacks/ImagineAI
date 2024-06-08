@@ -9,12 +9,29 @@
         <column xsi:type="int" name="category" padding="10" unsigned="true" nullable="false" identity="false"
                 comment="Category Column"/>
         <column xsi:type="varchar" name="url" nullable="false" length="255" comment="Url Column"/>
-        <column xsi:type="varchar" name="create_at" nullable="false" length="255" comment="Create At Column"/>
+        <column xsi:type="varchar" name="created_at" nullable="false" length="255" comment="Create At Column"
+        default="CURRENT_TIMESTAMP"
+        />
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="imagine_id"/>
         </constraint>
         <index referenceId="IMAGINE_IMAGINE_ID" indexType="btree">
             <column name="imagine_id"/>
+        </index>
+    </table>
+    <table name="imagine_prompts_log" resource="default" engine="innodb" comment="Imagine Prompts Log">
+        <column xsi:type="int" name="log_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Log Id Column"/>
+        <column xsi:type="int" name="imagine_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Imagine Id Column"/>
+        <column xsi:type="varchar" name="prompt" nullable="false" length="255" comment="Prompt Column"/>
+        <column xsi:type="varchar" name="created_at" nullable="false" length="255" comment="Create At Column"
+                default="CURRENT_TIMESTAMP"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="log_id"/>
+        </constraint>
+        <index referenceId="IMAGINE_PROMPTS_LOG_LOG_ID" indexType="btree">
+            <column name="log_id"/>
         </index>
     </table>
 </schema>

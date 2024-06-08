@@ -21,10 +21,16 @@
                 <field id="api_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>API Key</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
                 <field id="api_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>API Secret</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
                 <field id="fine_tune" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1"
                        showInStore="1">
@@ -32,36 +38,59 @@
                     <comment>Fine tune the model by adding a phrase to the end of the search term(e.g "Dress" or
                         "Shirt")
                     </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
                 <field id="selected_model" translate="label" type="select" sortOrder="10" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Selected Model</label>
                     <comment>Select the model to use with DALL·E.</comment>
                     <source_model>Gundo\Imagine\Model\Config\Source\AvailableModels</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
-                <!--Allow guests YES/NO-->
+                <field id="image_quality" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Image Quality</label>
+                    <comment>Set the quality of the image to be generated.</comment>
+                    <source_model>Gundo\Imagine\Model\Config\Source\ImageQualityOptions</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
                 <field id="allow_guests" translate="label" type="select" sortOrder="50" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Allow Guests</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
-                <!-- Customer Groups -->
                 <field id="customer_groups" translate="label" type="multiselect" sortOrder="60" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Customer Groups</label>
                     <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
-                <!-- Save to Customer Account -->
                 <field id="save_to_customer_account" translate="label" type="select" sortOrder="70" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Save to Customer Account</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
-                <!-- Save to Database -->
                 <field id="save_to_database" translate="label" type="select" sortOrder="80" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Save to Database</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
             </group>
         </section>

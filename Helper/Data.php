@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Gundo\Imagine\Helper;
 
@@ -9,9 +9,19 @@ use Magento\Store\Model\ScopeInterface;
 
 class Data extends AbstractHelper
 {
+    /**
+     * @var ScopeConfigInterface
+     */
     protected $scopeConfig;
 
-    public function __construct(Context $context, ScopeConfigInterface $scopeConfig)
+    /**
+     * @param Context $context
+     * @param ScopeConfigInterface $scopeConfig
+     */
+    public function __construct(
+        Context $context,
+        ScopeConfigInterface $scopeConfig
+    )
     {
         $this->scopeConfig = $scopeConfig;
         parent::__construct($context);
@@ -23,27 +33,37 @@ class Data extends AbstractHelper
      */
     public function isImagineEnabled($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag('imagine/general/enabled', ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->isSetFlag(
+            'imagine/general/enabled',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
     }
 
     /**
-     * Get OpenAI Keys From Config
      * @param $storeId
      * @return mixed
      */
     public function getApiKey($storeId = null): mixed
     {
-        return $this->scopeConfig->getValue('imagine/general/api_key', ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->getValue(
+            'imagine/general/api_key',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
     }
 
     /**
-     * Get Model Fine Tune From Config
      * @param $storeId
      * @return mixed
      */
     public function getModelFineTune($storeId = null): mixed
     {
-        return $this->scopeConfig->getValue('imagine/general/fine_tune', ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->getValue(
+            'imagine/general/fine_tune',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
     }
 
     /**
@@ -52,7 +72,11 @@ class Data extends AbstractHelper
      */
     public function getApiSecret($storeId = null): mixed
     {
-        return $this->scopeConfig->getValue('imagine/general/api_secret', ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->getValue(
+            'imagine/general/api_secret',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
     }
 
     /**
@@ -61,7 +85,11 @@ class Data extends AbstractHelper
      */
     public function isGuestAllowed($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag('imagine/general/allow_guests', ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->isSetFlag(
+            'imagine/general/allow_guests',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
     }
 
     /**
@@ -70,7 +98,11 @@ class Data extends AbstractHelper
      */
     public function getCustomerGroups($storeId = null): array
     {
-        $customerGroups = $this->scopeConfig->getValue('imagine/general/customer_groups', ScopeInterface::SCOPE_STORE, $storeId);
+        $customerGroups = $this->scopeConfig->getValue(
+            'imagine/general/customer_groups',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
 
         return explode(',', $customerGroups);
     }
@@ -81,15 +113,34 @@ class Data extends AbstractHelper
      */
     public function isSaveToCustomerAccount($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag('imagine/general/save_to_customer_account', ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->isSetFlag(
+            'imagine/general/save_to_customer_account',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
     }
 
     /**
      * @param $storeId
      * @return bool
      */
-    public function isSaveToDatabase($storeId = null): bool
+    public function isAllowedToSave($storeId = null): bool
     {
-        return $this->scopeConfig->isSetFlag('imagine/general/save_to_database', ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->isSetFlag(
+            'imagine/general/save_to_database',
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageConfig(): string
+    {
+        return $this->scopeConfig
+            ->getValue(
+                'imagine/general/image_quality'
+            );
     }
 }

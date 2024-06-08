@@ -2,8 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Gundo_Imagine::management" sortOrder="100" title="Imagine Management" module="Gundo_Imagine"
-             parent="Gundo_Imagine::management" resource="Gundo_Imagine::management" translate="title"
+        <add id="Gundo_Imagine::home" sortOrder="100" title="Imagine Admin Home" module="Gundo_Imagine"
+             parent="Gundo_Imagine::home" resource="Gundo_Imagine::home" translate="title"
              action="imagine/imagine/index"/>
     </menu>
 </config>

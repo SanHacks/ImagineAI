@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Gundo\Imagine\Block;
 
@@ -29,10 +29,10 @@ class Index extends Template
     }
 
     /**
-     * @param $field
+     * @param string $field
      * @return mixed
      */
-    public function getFormData($field): mixed
+    public function getFormData(string $field): mixed
     {
         return $this->getRequest()->getParam('prompt');
     }

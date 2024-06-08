@@ -5,6 +5,8 @@
         <arguments>
             <argument name="commands" xsi:type="array">
                 <item name="gundo_imagine_clean_up" xsi:type="object">Gundo\Imagine\Console\Command\CleanUp</item>
+                <item name="gundo_imagine_sample_data" xsi:type="object">Gundo\Imagine\Console\Command\SampleData</item>
+                <item name="gundo_imagine_data_check_up" xsi:type="object">Gundo\Imagine\Console\Command\DataCheckUp</item>
             </argument>
         </arguments>
     </type>
@@ -15,4 +17,30 @@
             </argument>
         </arguments>
     </type>
+    <type name="Gundo\Imagine\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Gundo\Imagine\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">Imagine</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Magento\Framework\Logger\Handler\System</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="gundo_imagine_images_listing_data_source" xsi:type="string">GundoImagineImageCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="GundoImagineImageCollection" type="Gundo\Imagine\Ui\DataProvider\Image\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">imagine</argument>
+            <argument name="resourceModel" xsi:type="string">Gundo\Imagine\Model\ResourceModel\Image</argument>
+        </arguments>
+    </virtualType>
 </config>

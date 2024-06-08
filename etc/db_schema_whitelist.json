@@ -13,5 +13,19 @@
         "constraint": {
             "PRIMARY": true
         }
+    },
+    "imagine_prompts_log": {
+        "column": {
+            "log_id": true,
+            "imagine_id": true,
+            "prompt": true,
+            "create_at": true
+        },
+        "index": {
+            "IMAGINE_PROMPTS_LOG_LOG_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
     }
 }

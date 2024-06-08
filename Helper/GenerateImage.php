@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Gundo\Imagine\Helper;
 
@@ -6,12 +6,7 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
-use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magento\Framework\App\ObjectManager;
-use Magento\Framework\Exception\CouldNotSaveException;
-use Magento\Framework\Exception\InputException;
-use Magento\Framework\Exception\StateException;
 use Gundo\Imagine\Logger\Logger;
 
 /**
@@ -20,6 +15,7 @@ use Gundo\Imagine\Logger\Logger;
  */
 class GenerateImage
 {
+    const LIMIT = 1;
     /**
      * @var Client
      */
@@ -36,9 +32,9 @@ class GenerateImage
     protected ProductRepositoryInterface $productRepository;
 
     /**
-     * @var Data $configHelpers
+     * @var Data $configData
      */
-    private Data $configHelpers;
+    private Data $configData;
 
     /**
      * @var Logger
@@ -50,28 +46,27 @@ class GenerateImage
      * @param Client $client
      * @param ProductRepositoryInterface $productRepository
      * @param Data $configHelper
-     * @param Data $configHelpers
+     * @param Data $configData
      */
     /**
      * @param Client $client
      * @param ProductRepositoryInterface $productRepository
      * @param Data $configHelper
-     * @param Data $configHelpers
+     * @param Data $configData
      * @param Logger $logger
      */
     public function __construct(
         Client                     $client,
         ProductRepositoryInterface $productRepository,
         Data                       $configHelper,
-        Data                       $configHelpers,
+        Data                       $configData,
         Logger                     $logger
     )
     {
         $this->client = $client;
         $this->productRepository = $productRepository;
-        $apiKey = $configHelper->getApiKey();
-        $this->headers = ['Content-Type' => 'application/json', 'Authorization' => 'Bearer ' . $apiKey];
-        $this->configHelpers = $configHelpers;
+        $this->headers = ['Content-Type' => 'application/json', 'Authorization' => 'Bearer ' . $configHelper->getApiKey()];
+        $this->configData = $configData;
         $this->logger = $logger;
     }
 
@@ -79,31 +74,21 @@ class GenerateImage
      * Fetch Product From OpenAI As Generation
      * @throws Exception
      */
-    public function getSingleImageUrl($prompt)
+    public function generateSingleImage($prompt)
     {
-
         if (!$prompt) {
             throw new Exception('Prompt is required');
         }
 
-        $fineTunePhrase = $this->configHelpers->getModelFineTune();
-        if (!$fineTunePhrase) {
-            $fineTunePhrase = '';
-        }
-
-        /** Quality Options
-         * 1024x1024 //Highest Quality
-         *       512x512
-         *      256x256
-         * */
-        $body = json_encode(['prompt' => $prompt . $fineTunePhrase, 'n' => 1, 'size' => '512x512']);
+        $body = json_encode(['prompt' => $prompt . $this->configData->getModelFineTune() ?? '', 'n' => self::LIMIT, 'size' => $this->getImageConfig() ?? '256x256']);
         $this->logger->info('Request Body: ' . $body);
         $request = new Request('POST', 'https://api.openai.com/v1/images/generations', $this->headers, $body);
 
         try {
             $response = $this->client->send($request);
             $this->logger->info('Response: ' . $response->getBody());
-            $responseData = json_decode($response->getBody(), true);
+            $responseData = json_decode($response->getBody()->getContents(), true);
+
             //Return Image or nothing
             $imageURl = $responseData['date'][0]['url'] ?? null;
             if ($imageURl) {
@@ -114,5 +99,14 @@ class GenerateImage
             $this->logger->error('Error: ' . $e->getMessage());
             return null;
         }
+    }
+
+    /**
+     * Get Image Config
+     * @return string
+     */
+    public function getImageConfig(): string
+    {
+        return $this->configData->getImageConfig();
     }
 }

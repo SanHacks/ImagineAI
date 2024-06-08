@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                gundo_imagine_images_listing.gundo_imagine_images_listing_data_source
+            </item>
+            <item name="deps" xsi:type="string">gundo_imagine_images_listing.gundo_imagine_images_listing_data_source
+            </item>
+        </item>
+        <item name="spinner" xsi:type="string">gundo_imagine_images_columns</item>
+    </argument>
+    <dataSource name="gundo_imagine_images_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Gundo\Imagine\Ui\DataProvider\Image\ImageDataProvider</argument>
+            <argument name="name" xsi:type="string">gundo_imagine_images_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">image_id</argument>
+            <argument name="requestFieldName" xsi:type="string">image_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <massaction name="listing_massaction"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="gundo_imagine_images_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>image_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="image_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Product ID</item>
+                </item>
+            </argument>
+        </column>
+        <column name="category">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Category</item>
+                </item>
+            </argument>
+        </column>
+        <column name="url">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">URL</item>
+                </item>
+            </argument>
+        </column>
+        <column name="created_at">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Created At</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="Gundo\Imagine\Ui\Component\Listing\Column\ImageActions">
+            <settings>
+                <indexField>image_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
