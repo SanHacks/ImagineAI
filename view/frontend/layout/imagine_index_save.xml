@@ -31,7 +31,7 @@
                     </block>
                 </container>
             </block>
-            <block class="Gundo\Imagine\Block\Image" name="gundo_imagine_image" template="Gundo_Imagine::image.phtml"/>
+            <block class="Gundo\Imagine\Block\ImageBlock" name="gundo_imagine_image" template="Gundo_Imagine::image.phtml"/>
         </referenceContainer>
     </body>
 </page>

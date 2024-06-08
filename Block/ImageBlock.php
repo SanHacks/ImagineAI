@@ -1,27 +1,27 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Gundo\Imagine\Block;
 
 use Exception;
-use Gundo\Imagine\Helper\GenerateImage;
+use Gundo\Imagine\Helper\GenerateImageHelper;
 use Magento\Framework\View\Element\Template;
 
-class Image extends Template
+class ImageBlock extends Template
 {
     /**
-     * @var GenerateImage
+     * @var GenerateImageHelper
      */
-    protected GenerateImage $generateImage;
+    protected GenerateImageHelper $generateImage;
 
     /**
      * @param Template\Context $context
-     * @param GenerateImage $generateImage
+     * @param GenerateImageHelper $generateImage
      * @param array $data
      */
     public function __construct(
-        Template\Context $context,
-        GenerateImage    $generateImage,
-        array            $data = []
+        Template\Context    $context,
+        GenerateImageHelper $generateImage,
+        array               $data = []
     )
     {
         $this->generateImage = $generateImage;

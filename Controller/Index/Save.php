@@ -3,7 +3,7 @@
 namespace Gundo\Imagine\Controller\Index;
 
 use Exception;
-use Gundo\Imagine\Helper\GenerateImage;
+use Gundo\Imagine\Helper\GenerateImageHelper;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
@@ -14,17 +14,17 @@ use Magento\Framework\View\Result\Page;
 class Save extends Action
 {
     /**
-     * @var GenerateImage
+     * @var GenerateImageHelper
      */
-    protected GenerateImage $generateImage;
+    protected GenerateImageHelper $generateImage;
 
     /**
      * @param Context $context
-     * @param GenerateImage $generateImage
+     * @param GenerateImageHelper $generateImage
      */
     public function __construct(
         Context       $context,
-        GenerateImage $generateImage
+        GenerateImageHelper $generateImage
     ){
         $this->generateImage = $generateImage;
         parent::__construct($context);

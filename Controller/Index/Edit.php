@@ -3,7 +3,7 @@
 namespace Gundo\Imagine\Controller\Index;
 
 use Exception;
-use Gundo\Imagine\Helper\GenerateImage;
+use Gundo\Imagine\Helper\GenerateImageHelper;
 use Gundo\Imagine\Logger\Logger;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
@@ -12,9 +12,9 @@ use Magento\Framework\Controller\ResultFactory;
 class Edit extends Action
 {
     /**
-     * @var GenerateImage
+     * @var GenerateImageHelper
      */
-    protected GenerateImage $generateImage;
+    protected GenerateImageHelper $generateImage;
 
     /**
      * @var Logger
@@ -23,13 +23,13 @@ class Edit extends Action
 
     /**
      * @param Context $context
-     * @param GenerateImage $generateImage
+     * @param GenerateImageHelper $generateImage
      * @param Logger $logger
      */
     public function __construct(
-        Context       $context,
-        GenerateImage $generateImage,
-        Logger        $logger
+        Context             $context,
+        GenerateImageHelper $generateImage,
+        Logger              $logger
     ){
         $this->generateImage = $generateImage;
         $this->logger = $logger;

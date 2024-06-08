@@ -12,9 +12,10 @@ use Gundo\Imagine\Logger\Logger;
 /**
  * Class GenerateImage
  */
-class GenerateImage
+class GenerateImageHelper
 {
     const LIMIT = 1;
+
     /**
      * @var Client
      */
