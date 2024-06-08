@@ -25,7 +25,7 @@ class Save extends Action
     public function __construct(
         Context       $context,
         GenerateImageHelper $generateImage
-    ){
+    ) {
         $this->generateImage = $generateImage;
         parent::__construct($context);
     }

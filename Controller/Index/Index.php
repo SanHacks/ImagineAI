@@ -39,7 +39,7 @@ class Index implements HttpGetActionInterface
         Config      $config,
         Context     $context,
         Session     $customerSession
-    ){
+    ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->config = $config;
         $this->customerSession = $customerSession;

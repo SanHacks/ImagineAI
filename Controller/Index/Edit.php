@@ -30,7 +30,7 @@ class Edit extends Action
         Context             $context,
         GenerateImageHelper $generateImage,
         Logger              $logger
-    ){
+    ) {
         $this->generateImage = $generateImage;
         $this->logger = $logger;
         parent::__construct($context);

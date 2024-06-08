@@ -12,6 +12,10 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action implements HttpGetActionInterface
 {
+
+    /**
+     * @var PageFactory $resultPageFactory
+     */
     private PageFactory $resultPageFactory;
 
     /**

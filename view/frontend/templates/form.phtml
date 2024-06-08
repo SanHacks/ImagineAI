@@ -7,7 +7,11 @@ use Gundo\Imagine\Block\Index;
         <input name="form_key" type="hidden" value="<?= $block->escapeHtml($block->getFormKey()); ?>"/>
 
         <div class="field required">
-            <label for="name" class="label"><span><?= $block->escapeHtml(__('Generate T-Shirt From Prompt')); ?></span></label>
+            <label for="name" class="label">
+                <span>
+                    <?= $block->escapeHtml(__('Generate T-Shirt From Prompt')); ?>
+                </span>
+            </label>
             <div class="control">
                 <input name="prompt" id="prompt"
                        title="<?= $block->escapeHtml(__('Generate Image with Any text e.g CyberPunk Sahara')); ?>"

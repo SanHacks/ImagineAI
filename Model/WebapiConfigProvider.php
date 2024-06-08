@@ -29,7 +29,7 @@ class WebapiConfigProvider
     public function __construct(
         IsCaptchaEnabledInterface         $isEnabled,
         ValidationConfigResolverInterface $configResolver
-    ){
+    ) {
         $this->isEnabled = $isEnabled;
         $this->configResolver = $configResolver;
     }
@@ -48,4 +48,3 @@ class WebapiConfigProvider
         return null;
     }
 }
-
