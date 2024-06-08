@@ -6,7 +6,6 @@ use Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider;
 
 class ImageDataProvider extends DataProvider
 {
-
     /**
      * @return array
      */
@@ -22,5 +21,4 @@ class ImageDataProvider extends DataProvider
     {
         return [];
     }
-
 }

@@ -13,7 +13,6 @@ use Magento\Framework\Validator\ValidateException;
 
 class AddImageaiProductNameProductAttribute implements DataPatchInterface
 {
-
     /**
      * @var ModuleDataSetupInterface
      */
@@ -31,8 +30,7 @@ class AddImageaiProductNameProductAttribute implements DataPatchInterface
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
         EavSetupFactory          $eavSetupFactory
-    )
-    {
+    ){
         $this->moduleDataSetup = $moduleDataSetup;
         $this->eavSetupFactory = $eavSetupFactory;
     }

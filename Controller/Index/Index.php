@@ -39,8 +39,7 @@ class Index implements HttpGetActionInterface
         Config      $config,
         Context     $context,
         Session     $customerSession
-    )
-    {
+    ){
         $this->resultPageFactory = $resultPageFactory;
         $this->config = $config;
         $this->customerSession = $customerSession;
@@ -52,16 +51,16 @@ class Index implements HttpGetActionInterface
     public function execute(): Page|ResultInterface|ResponseInterface
     {
         if ($this->config->isImagineEnabled() === true && $this->config->getApiKey() !== null) {
-           if ($this->customerSession->isLoggedIn()) {
-               $resultPage = $this->imagineResultPage();
-           } else {
-               if (!$this->customerSession->isLoggedIn() && $this->config->isGuestAllowed() === true) {
-                   $resultPage = $this->imagineResultPage();
-               } else {
-                   $resultPage = $this->resultPageFactory->create();
-                   $resultPage->getConfig()->getTitle()->set(__('Please Login'));
-               }
-           }
+            if ($this->customerSession->isLoggedIn()) {
+                $resultPage = $this->imagineResultPage();
+            } else {
+                if (!$this->customerSession->isLoggedIn() && $this->config->isGuestAllowed() === true) {
+                    $resultPage = $this->imagineResultPage();
+                } else {
+                    $resultPage = $this->resultPageFactory->create();
+                    $resultPage->getConfig()->getTitle()->set(__('Please Login'));
+                }
+            }
         } else {
             $resultPage = $this->resultPageFactory->create();
             $resultPage->getConfig()->getTitle()->set(__('Imagine is not enabled'));

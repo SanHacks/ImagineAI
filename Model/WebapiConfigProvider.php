@@ -8,9 +8,6 @@ use Magento\ReCaptchaUi\Model\ValidationConfigResolverInterface;
 use Magento\ReCaptchaValidationApi\Api\Data\ValidationConfigInterface;
 use Magento\ReCaptchaWebapiApi\Api\Data\EndpointInterface;
 
-/**
- * @package Gundo/Imagine
- */
 class WebapiConfigProvider
 {
     /**
@@ -32,12 +29,14 @@ class WebapiConfigProvider
      * @param IsCaptchaEnabledInterface $isEnabled
      * @param ValidationConfigResolverInterface $configResolver
      */
-    public function __construct(IsCaptchaEnabledInterface $isEnabled, ValidationConfigResolverInterface $configResolver)
+    public function __construct(
+        IsCaptchaEnabledInterface         $isEnabled,
+        ValidationConfigResolverInterface $configResolver
+    )
     {
         $this->isEnabled = $isEnabled;
         $this->configResolver = $configResolver;
     }
-
 
     /**
      * @param EndpointInterface $endpoint

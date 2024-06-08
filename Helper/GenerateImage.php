@@ -11,7 +11,6 @@ use Gundo\Imagine\Logger\Logger;
 
 /**
  * Class GenerateImage
- * @package Gundo\Imagine\Helper
  */
 class GenerateImage
 {
@@ -41,13 +40,6 @@ class GenerateImage
      */
     private Logger $logger;
 
-
-    /**
-     * @param Client $client
-     * @param ProductRepositoryInterface $productRepository
-     * @param Data $configHelper
-     * @param Data $configData
-     */
     /**
      * @param Client $client
      * @param ProductRepositoryInterface $productRepository
@@ -80,7 +72,14 @@ class GenerateImage
             throw new Exception('Prompt is required');
         }
 
-        $body = json_encode(['prompt' => $prompt . $this->configData->getModelFineTune() ?? '', 'n' => self::LIMIT, 'size' => $this->getImageConfig() ?? '256x256']);
+        $body = json_encode(
+            [
+                'prompt' => $prompt . $this->configData->getModelFineTune() ?? '',
+                'n' => self::LIMIT,
+                'size' => $this->getImageConfig() ?? '256x256'
+            ]
+        );
+
         $this->logger->info('Request Body: ' . $body);
         $request = new Request('POST', 'https://api.openai.com/v1/images/generations', $this->headers, $body);
 

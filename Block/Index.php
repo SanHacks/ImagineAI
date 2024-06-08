@@ -6,7 +6,6 @@ use Magento\Framework\View\Element\Template;
 
 /**
  * @Index Block
- * @package Gundo\Imagine
  */
 class Index extends Template
 {
